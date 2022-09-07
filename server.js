@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var app = express();
 var port = 3000;
+const db = require('./models/index.js');
 
 //To parse URL encoded data
 app.use(bodyParser.urlencoded({extended: true}));
