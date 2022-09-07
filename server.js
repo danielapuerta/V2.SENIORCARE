@@ -1,5 +1,6 @@
 var express = require('Express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var app = express();
 var port = 3000;
 
@@ -9,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //To parse json data
 app.use(bodyParser.json());
 
+//cookie-parser
+app.use(cookieParser());
 
 app.get('/dani', function(req, res){
     res.send("Hello World!");
