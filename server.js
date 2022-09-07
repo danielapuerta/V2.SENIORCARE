@@ -5,7 +5,8 @@ var app = express();
 var port = 3000;
 
 //To parse URL encoded data
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.urlencoded());
 
 //To parse json data
 app.use(bodyParser.json());
