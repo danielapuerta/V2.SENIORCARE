@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var app = express();
 var port = 3000;
 const db = require('./models/index.js');
+const exphbs = require('express-handlebars');
 
 //To parse URL encoded data
 app.use(bodyParser.urlencoded({extended: true}));
@@ -22,6 +23,9 @@ app.get('/dani', function(req, res){
 app.get('/:id', function(req,res){
     res.send('The id you specified is ' + req.params.id);
 });
+
+app.engine('handlebars', exphbs);
+app.set('view engine', 'handlebars');
 
 
 //routes
