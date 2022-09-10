@@ -16,15 +16,19 @@ app.use(bodyParser.json());
 //cookie-parser
 app.use(cookieParser());
 
-app.get('/dani', function(req, res){
-    res.send("Hello World!");
- });
+// app.get('/dani', function(req, res){
+//     res.send("Hello World!");
+//  });
 
-app.get('/:id', function(req,res){
-    res.send('The id you specified is ' + req.params.id);
-});
+// app.get('/:id', function(req,res){
+//     res.send('The id you specified is ' + req.params.id);
+// });
 
-app.engine('handlebars', exphbs);
+//View files
+app.engine('handlebars', exphbs.engine({
+    layoutsDir: __dirname + '/views/layouts',
+   partialsDir: __dirname + '/views/partials'
+}));
 app.set('view engine', 'handlebars');
 
 
