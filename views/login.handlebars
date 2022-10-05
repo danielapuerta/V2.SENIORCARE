@@ -32,3 +32,25 @@
         </div>
     </div>
 </div>
+
+{{!-- jquery ajax --}}
+<script>
+    $('#loginButton').click(function(e)){
+        e.preventDevault();
+
+        var user = {
+            nurseCode: $('input[name=nurseCode]').val(),
+            password: $('input[name=password]').val()
+        }
+    $.ajax({
+        type: "POST",
+        url: "/api/auth/signin",
+        data: user,
+        success: function(data, status, settings){
+            window.location.href = '/residents';
+        }
+    })    
+
+    
+    }
+</script>
