@@ -37,12 +37,14 @@
 <script>
     $('#loginButton').click(function(e)){
         e.preventDevault();
-
+        //create an user object and store the nurseCode input in the vars nurseCode
+        //we do the same for password
         var user = {
             nurseCode: $('input[name=nurseCode]').val(),
             password: $('input[name=password]').val()
         }
     $.ajax({
+        //we make an ajax call and send the data to the server through the api
         type: "POST",
         url: "/api/auth/signin",
         data: user,
