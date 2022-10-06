@@ -1,28 +1,28 @@
+//Express is for building the Rest apis
 var express = require('Express');
+//helps to parse the request and create the req.body object
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var app = express();
 var port = 3000;
 const db = require('./models/index.js');
 const exphbs = require('express-handlebars');
+const cors = require("cors");
+
+var corsOptions = {
+    origin: "http://localhost:8081"
+  };
+app.use(cors(corsOptions));
+
+// parse requests of content-type - application/json
+app.use(bodyParser.json());
 
 //To parse URL encoded data
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded());
 
-//To parse json data
-app.use(bodyParser.json());
-
 //cookie-parser
 app.use(cookieParser());
-
-// app.get('/dani', function(req, res){
-//     res.send("Hello World!");
-//  });
-
-// app.get('/:id', function(req,res){
-//     res.send('The id you specified is ' + req.params.id);
-// });
 
 //View files
 app.engine('handlebars', exphbs.engine({
@@ -34,7 +34,7 @@ app.set('view engine', 'handlebars');
 
 //routes
 //this is my route for user
-require('./routes/user')(app);
+require('./routes/user.routes')(app);
 
 
 
