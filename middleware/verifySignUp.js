@@ -1,8 +1,8 @@
-const db = require("../models");
-const User = db.user;
-
 //to verify a SignUp (register) action, we need the following function: checkDuplicateNurseCode()
 // check if nurseCode is duplicated or not
+
+const db = require("../models");
+const User = db.user;
 
 checkDuplicateNurseCode = (req, res, next) => {
     //nurseCode
