@@ -1,15 +1,18 @@
+const {authJwt} = require('../middleware');
+const controller = require('../controllers/user.controller');
+
+
 
 module.exports = function (app){
    //login
    app.get('/', function(req, res){
-      res.render('login');
+      //renders login view
+      res.render('register');
    });
-   app.post('/', (req, res) => {
-      // Insert Login Code Here
-      let nurseCode = req.body.nurseCode;
-      let password = req.body.password;
-      res.send(`nurseCode: ${nurseCode} password: ${password}`);
-    });
+   app.get('/register', function(req, res){
+      //renders register view
+      res.render('register');
+   })
 
    
 };
